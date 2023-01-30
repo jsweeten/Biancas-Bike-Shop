@@ -1,13 +1,41 @@
 const apiUrl = '/api/bike';
 
 export const getBikes = () => {
-    //add implementation here... 
+    return fetch(apiUrl).then((res) => {
+        if (res.ok)
+        {
+            return res.json();
+        } else {
+            throw new Error(
+                "An unknown error occurred while trying to get inventory.",
+              );
+        }
+    })
 }
 
+
 export const getBikeById = (id) => {
-    //add implementation here... 
+    return fetch(`${apiUrl}/${id}`).then((res) => {
+        if (res.ok)
+        {
+            return res.json();
+        } else {
+            throw new Error(
+                "An unknown error occurred while trying to get inventory.",
+              );
+        }
+    })
 }
 
 export const getBikesInShopCount = () => {
-    //add implementation here... 
+    return fetch(`${apiUrl}/count`).then((res) => {
+        if (res.ok)
+        {
+            return res.json();
+        } else {
+            throw new Error(
+                "An unknown error occurred while trying to get inventory.",
+              );
+        }
+    })
 }
